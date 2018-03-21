@@ -59,7 +59,7 @@ module Spec2
           output.puts
           output.puts :failure, "In example: #{example.description}"
           output.puts :failure, "\tFailure: #{e}"
-          output.puts :failure, e.backtrace.map { |line| "\t#{line}" }.join("\n")
+		  output.puts :failure, e.cause.try &.backtrace.map { |line| "\t#{line}" }.join("\n")
         end
 
         output.puts
